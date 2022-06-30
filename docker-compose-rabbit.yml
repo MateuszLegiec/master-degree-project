@@ -1,0 +1,12 @@
+version: '3'
+services:
+  rabbit:
+    image: rabbitmq:alpine
+  rabbit-consumer:
+    image: local/rabbit-consumer
+    depends_on:
+      - rabbit
+  rabbit-producer:
+    image: local/rabbit-producer
+    depends_on:
+      - rabbit-consumer
